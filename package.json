@@ -9,5 +9,9 @@
     "start": "concurrently 'npm run frontend' 'npm run api'",
     "frontend": "parcel index.html",
     "api": "json-server db.json"
+  },
+  "dependencies": {
+    "shoelace-css": "^1.0.0-beta24",
+    "superagent": "^3.8.3"
   }
 }
