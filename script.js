@@ -4,8 +4,8 @@ import Card from './src/Card'
 
 document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
-    for (let note of allTheCards) {
-      createCardDom(note)
+    for (let card of allTheCards) {
+      createCardDom(card)
     }
   })
 
@@ -15,24 +15,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
     let cardData = {
       tags: tagInputValue.split(' '),
       text: document.getElementById('input-text-field').value,
-      title: document.getElementById('input-note-title').value
+      title: document.getElementById('input-card-title').value
     }
 
     let newCard = new Card(cardData)
-    newCard.createCardhen(note => {
-      createCardDom(note)
+    newCard.createCardDom(card => {
+      createCardDom(card)
     })
   })
 })
 
 function createCardDom (card) {
-  let form = document.getElementById('form-container')
+  let form = document.getElementById('form')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
 
   cardDom.dataset.id = card.id
   cardDom.classList.add('cardDom')
-  cardDom.innerHTML = `<h1>${card.deck}</h1>
+  cardDom.innerHTML = `<h1>${card.id}</h1>
                       <h3>${card.question}</h3>
                       <p>${card.answer}</p>`
 

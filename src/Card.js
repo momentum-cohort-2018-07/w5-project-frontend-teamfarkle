@@ -2,9 +2,10 @@ import Api from './api'
 let api = new Api()
 class Card {
   constructor (properties) {
+    debugger
     this.question = properties.question
     this.answer = properties.answer
-    this.id = properties.id || properties._id
+    this.id = properties.id
     this.updated = properties.updated || null
     this.deck = properties.deck || null
   }
@@ -12,7 +13,8 @@ class Card {
   static getAll () {
     return api.get()
       .then(response => {
-        let cards = response.body.cards
+        let cards = response.body
+        console.log('cards data', cards)
         return cards.map(cardData => new Card(cardData))
       })
   }
