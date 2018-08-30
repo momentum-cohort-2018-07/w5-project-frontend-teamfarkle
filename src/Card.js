@@ -2,7 +2,6 @@ import Api from './api'
 let api = new Api()
 class Card {
   constructor (properties) {
-    debugger
     this.question = properties.question
     this.answer = properties.answer
     this.id = properties.id
