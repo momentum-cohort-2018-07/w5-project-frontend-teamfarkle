@@ -13,7 +13,6 @@ class Card {
     return api.get()
       .then(response => {
         let cards = response.body
-        console.log('cards data', cards)
         return cards.map(cardData => new Card(cardData))
       })
   }
