@@ -11,17 +11,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
-    let tagInputValue = document.getElementById('input-tag-field').value
     let cardData = {
-      tags: tagInputValue.split(' '),
-      text: document.getElementById('input-text-field').value,
-      title: document.getElementById('input-card-title').value
+      answer: document.getElementById('input-answer').value,
+      question: document.getElementById('input-question').value
     }
 
     let newCard = new Card(cardData)
-    newCard.createCardDom(card => {
-      createCardDom(card)
-    })
+    createCardDom(newCard)
   })
 })
 
