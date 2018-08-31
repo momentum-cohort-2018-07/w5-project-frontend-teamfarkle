@@ -13,6 +13,7 @@
   "dependencies": {
     "shoelace-css": "^1.0.0-beta24",
     "shortid": "^2.2.13",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "vanilla-router": "^1.2.7"
   }
 }

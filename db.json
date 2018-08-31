@@ -1,14 +1,9 @@
 {
   "cards": [
     {
-      "question": "What is the meaning of life",
-      "answer": "42",
-      "id": "1"
-    },
-    {
-      "question": "What is the meaning of death",
-      "answer": "24",
-      "id": "2"
+      "id": "3mcm9LCjM",
+      "answer": "question",
+      "question": "answer"
     }
   ]
 }
