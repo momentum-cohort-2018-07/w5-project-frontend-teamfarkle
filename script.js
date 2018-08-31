@@ -11,22 +11,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
-    let tagInputValue = document.getElementById('input-tag-field').value
+    // let tagInputValue = document.getElementById('form').value
     let cardData = {
-      tags: tagInputValue.split(' '),
-      text: document.getElementById('input-text-field').value,
-      title: document.getElementById('input-card-title').value
+      // tags: tagInputValue.split(' '),
+      question: document.getElementById('input-question').value,
+      answer: document.getElementById('input-answer').value
+      debugger
     }
 
     let newCard = new Card(cardData)
-    newCard.createCardDom(card => {
-      createCardDom(card)
+    newCard.createCardDom(cardData => {
+      createCardDom(cardData)
     })
   })
 })
 
 function createCardDom (card) {
-  let form = document.getElementById('form')
+  let form = document.getElementById('cardView')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
 
@@ -40,7 +41,8 @@ function createCardDom (card) {
   let newEditButton = createEditButton()
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
-  form.prepend(cardDom)
+  debugger
+  form.appendChild(cardDom)
 }
 function createDeleteButton (card, cardDom) {
   let newDeleteButton = document.createElement('button')
