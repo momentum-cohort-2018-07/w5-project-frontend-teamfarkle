@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 })
 document.getElementsByClassName('fa-edit').addEventListener('click', function (event) {
   event.preventDefault()
-
+  createForm()
 })
 
 function createCardDom (card) {
@@ -33,9 +33,8 @@ function createCardDom (card) {
   cardDom.classList.add('flash-card')
 
   cardDom.dataset.id = card.id
-  cardDom.classList.add('cardDom')
-  cardDom.innerHTML = `<h1>${card.id}</h1>
-                      <h3 class = 'question'>${card.question}</h3>
+  cardDom.classList.add('card-Dom')
+  cardDom.innerHTML = `<h3 class = 'question'>${card.question}</h3>
                       <p class = 'answer'>${card.answer}</p>`
 
   let newDeleteButton = createDeleteButton(card, cardDom)
@@ -59,6 +58,9 @@ function createDeleteButton (card, cardDom) {
 function createEditButton () {
   let createEdit = document.createElement('button')
   createEdit.classList.add('fas', 'fa-edit')
+  createEdit.addEventListener('click', function (event) {
+    createForm()
+  })
   return createEdit
 }
 function createForm () {
@@ -72,11 +74,6 @@ function createForm () {
   createInputQuestion.placeholder(getQuestion)
   createInputAnswer.type('text')
   createInputAnswer.placeholder(getAnswer)
-
-}
-
-function editCard (card) {
-  editCardTag = document.getElementById('flash-card')
-  called a function to open a form
-  //
+  createForm.appendChild(createInputQuestion)
+  createForm.appendChild(createInputAnswer)
 }
