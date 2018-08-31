@@ -1,11 +1,12 @@
 import Api from './api'
+import shortid from 'shortid'
+
 let api = new Api()
 class Card {
   constructor (properties) {
     this.question = properties.question
     this.answer = properties.answer
-    this.id = properties.id
-    this.updated = properties.updated || null
+    this.id = properties.id || shortid.generate()
     this.deck = properties.deck || null
   }
 
@@ -20,12 +21,12 @@ class Card {
   create () {
     return api.post()
       .send({
+        id: this.id,
         answer: this.answer,
         question: this.question
       })
       .then(response => {
-        this.id = response.body._id
-        this.updated = response.body.updated
+        this.id = response.body.id
         return response.body
       })
   }
