@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
+<<<<<<< HEAD
     // let tagInputValue = document.getElementById('form').value
     let cardData = {
       // tags: tagInputValue.split(' '),
@@ -23,6 +24,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
     newCard.createCardDom(cardData => {
       createCardDom(cardData)
     })
+=======
+    let cardData = {
+      answer: document.getElementById('input-answer').value,
+      question: document.getElementById('input-question').value
+    }
+
+    let newCard = new Card(cardData)
+    createCardDom(newCard)
+>>>>>>> d69d94a02f0d06d804f61e265ae00d4adee51320
   })
 })
 
