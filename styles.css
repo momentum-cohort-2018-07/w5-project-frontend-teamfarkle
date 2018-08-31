@@ -8,6 +8,14 @@ body {
   background-color: aliceblue;
 }
 
+#gameContainer {
+  margin: 20px 30px;
+}
+
+li {
+  list-style: none;
+}
+
 .flashcard {
   background-color: white;
   font-family: 'Raleway', sans-serif;
