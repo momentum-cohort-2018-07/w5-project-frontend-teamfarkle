@@ -1,6 +1,7 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
+import Router from 'vanilla-router'
 
 document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
@@ -11,48 +12,38 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
-<<<<<<< HEAD
-    // let tagInputValue = document.getElementById('form').value
-    let cardData = {
-      // tags: tagInputValue.split(' '),
-      question: document.getElementById('input-question').value,
-      answer: document.getElementById('input-answer').value
-      debugger
-    }
-
-    let newCard = new Card(cardData)
-    newCard.createCardDom(cardData => {
-      createCardDom(cardData)
-    })
-=======
     let cardData = {
       answer: document.getElementById('input-answer').value,
       question: document.getElementById('input-question').value
     }
-
     let newCard = new Card(cardData)
-    createCardDom(newCard)
->>>>>>> d69d94a02f0d06d804f61e265ae00d4adee51320
+    newCard.create().then(card => {
+      createCardDom(card)
+    })
   })
+})
+document.getElementsByClassName('fa-edit').addEventListener('click', function (event) {
+  event.preventDefault()
+
 })
 
 function createCardDom (card) {
-  let form = document.getElementById('cardView')
+  let form = document.getElementById('form')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
 
   cardDom.dataset.id = card.id
   cardDom.classList.add('cardDom')
   cardDom.innerHTML = `<h1>${card.id}</h1>
-                      <h3>${card.question}</h3>
-                      <p>${card.answer}</p>`
+                      <h3 class = 'question'>${card.question}</h3>
+                      <p class = 'answer'>${card.answer}</p>`
 
   let newDeleteButton = createDeleteButton(card, cardDom)
   let newEditButton = createEditButton()
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
-  debugger
-  form.appendChild(cardDom)
+
+  form.prepend(cardDom)
 }
 function createDeleteButton (card, cardDom) {
   let newDeleteButton = document.createElement('button')
@@ -69,4 +60,23 @@ function createEditButton () {
   let createEdit = document.createElement('button')
   createEdit.classList.add('fas', 'fa-edit')
   return createEdit
+}
+function createForm () {
+  let createForm = document.createElement('form')
+  createForm.classList.add('edit-form')
+  let getQuestion = document.getElementById('question').value
+  let getAnswer = document.getElementById('answer').value
+  let createInputQuestion = document.createElement('input-question')
+  let createInputAnswer = document.createElement('input-answer')
+  createInputQuestion.type('text')
+  createInputQuestion.placeholder(getQuestion)
+  createInputAnswer.type('text')
+  createInputAnswer.placeholder(getAnswer)
+
+}
+
+function editCard (card) {
+  editCardTag = document.getElementById('flash-card')
+  called a function to open a form
+  //
 }
