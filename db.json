@@ -1,12 +1,14 @@
-"cards": [
-  {
-    "id": "RPtv6ZQ2r",
-    "answer": "1",
-    "question": "1"
-  },
-  {
-    "id": "Jp8QKfqRd",
-    "answer": "2",
-    "question": "2"
-  }
-]
+{
+  "cards": [
+    {
+      "id": "RPtv6ZQ2r",
+      "answer": "1",
+      "question": "1"
+    },
+    {
+      "id": "Jp8QKfqRd",
+      "answer": "2",
+      "question": "2"
+    }
+  ]
+}
