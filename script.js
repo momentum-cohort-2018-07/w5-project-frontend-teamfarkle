@@ -1,30 +1,52 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-// import Router from 'vanilla-router'
+import Router from 'vanilla-router'
+import Api from './src/Api'
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  Card.getAll().then(allTheCards => {
-    for (let card of allTheCards) {
-      createCardDom(card)
-    }
-  })
+const router = new Router({
+  mode: 'history'
+})
 
-  document.getElementById('submit-button').addEventListener('click', function (event) {
-    event.preventDefault()
-    let cardData = {
-      answer: document.getElementById('input-answer').value,
-      question: document.getElementById('input-question').value
-    }
-    let newCard = new Card(cardData)
-    newCard.create().then(card => {
-      createCardDom(card)
-    })
+router.add('', (id) => {
+  document.getElementById('cards-container').innerHTML = ''
+  const button = document.createElement('button')
+  button.innerText = 'Start Game'
+  document.getElementById('cards-container').appendChild(button)
+  button.addEventListener('Click', function (e) {
+    console.log('clicked button')
+    router.navigateTo('cards/{id}')
   })
 })
 
+router.add('cards/{id}', (id) => {
+  const api = new Api()
+  api.get(id)
+    .then(res => {
+      const cardData = res.body
+      const card = new Card(cardData)
+      const dom = createCardDom(card)
+      document.getElementById('cards-container').innerHTML = ''
+      document.getElementById('cards-container').appendChild(dom)
+    })
+})
+
+router.addUriListener()
+router.check()
+
+// document.getElementById('submit-button').addEventListener('click', function (event) {
+//   event.preventDefault()
+//   let cardData = {
+//     answer: document.getElementById('input-answer').value,
+//     question: document.getElementById('input-question').value
+//   }
+//   let newCard = new Card(cardData)
+//   newCard.create().then(card => {
+//     createCardDom(card)
+//   })
+// })
+
 function createCardDom (card) {
-  let cardsContainer = document.getElementById('cards-container')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card', 'flip-vertical-left')
   cardDom.dataset.cardId = card.id
@@ -37,8 +59,7 @@ function createCardDom (card) {
   let newEditButton = createEditButton(card)
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
-
-  cardsContainer.prepend(cardDom)
+  return cardDom
 }
 
 function createDeleteButton (card, cardDom) {
