@@ -1,7 +1,7 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-import Router from 'vanilla-router'
+// import Router from 'vanilla-router'
 
 document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
+    console.log('event', event)
     let cardData = {
       answer: document.getElementById('input-answer').value,
       question: document.getElementById('input-question').value
@@ -24,7 +25,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
 })
 
 function createCardDom (card) {
-  let form = document.getElementById('form')
+  console.log('create dom', createCardDom)
+  let cardsContainer = document.getElementById('cards-container')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
 
@@ -37,8 +39,9 @@ function createCardDom (card) {
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
 
-  form.prepend(cardDom)
+  cardsContainer.prepend(cardDom)
 }
+
 function createDeleteButton (card, cardDom) {
   let newDeleteButton = document.createElement('button')
   newDeleteButton.classList.add('fas', 'fa-trash-alt')
