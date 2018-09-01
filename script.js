@@ -11,12 +11,8 @@ const router = new Router({
 router.add('', (id) => {
   document.getElementById('cards-container').innerHTML = ''
   const button = document.createElement('button')
-  button.innerText = 'Start Game'
+  button.innerText = 'Start game'
   document.getElementById('cards-container').appendChild(button)
-  button.addEventListener('Click', function (e) {
-    console.log('clicked button')
-    router.navigateTo('cards/{id}')
-  })
 })
 
 router.add('cards/{id}', (id) => {
@@ -34,17 +30,19 @@ router.add('cards/{id}', (id) => {
 router.addUriListener()
 router.check()
 
-// document.getElementById('submit-button').addEventListener('click', function (event) {
-//   event.preventDefault()
-//   let cardData = {
-//     answer: document.getElementById('input-answer').value,
-//     question: document.getElementById('input-question').value
-//   }
-//   let newCard = new Card(cardData)
-//   newCard.create().then(card => {
-//     createCardDom(card)
-//   })
-// })
+
+  // document.getElementById('submit-button').addEventListener('click', function (event) {
+  //   event.preventDefault()
+  //   let cardData = {
+  //     answer: document.getElementById('input-answer').value,
+  //     question: document.getElementById('input-question').value
+  //   }
+  //   let newCard = new Card(cardData)
+  //   newCard.create().then(card => {
+  //     createCardDom(card)
+  //   })
+  // })
+
 
 function createCardDom (card) {
   let cardDom = document.createElement('li')
