@@ -48,7 +48,7 @@ router.check()
 
 function createCardDom (card) {
   let cardDom = document.createElement('li')
-  cardDom.classList.add('flash-card', 'flip-vertical-left')
+  cardDom.classList.add('flash-card')
   cardDom.dataset.cardId = card.id
 
   cardDom.classList.add('card-Dom')
@@ -86,9 +86,8 @@ function createEditButton (card) {
 function createForm (card) {
   let gameContainer = document.getElementById('gameContainer')
   let createForm = document.createElement('form')
-  createForm.dataset.cardID = card.id
-  console.log('card id', card.id)
   createForm.classList.add('edit-form')
+  createForm.setAttribute('id', `${card.id}`)
 
   let createInputQuestion = document.createElement('input')
   createInputQuestion.classList.add('input-question')
@@ -110,7 +109,7 @@ function createForm (card) {
 }
 
 function createSaveButton (card) {
-  let editForm = document.querySelectorAll('data-card-id' =`${card.id}`])
+  let editForm = document.getElementById(card)
   var editButton = document.createElement('button')
   editButton.classList.add('edit-button')
   editButton.innerText = 'Save'
@@ -124,7 +123,7 @@ function createSaveButton (card) {
 }
 
 function createCancelButton (card) {
-  let editForm = document.getElementsByClassName('edit-form')
+  let editForm = document.getElementById(card)
   var cancelButton = document.createElement('button')
   cancelButton.classList.add('cancel-button')
   cancelButton.innerText = 'Cancel'
