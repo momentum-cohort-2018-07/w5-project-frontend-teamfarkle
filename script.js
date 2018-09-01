@@ -4,6 +4,8 @@ import Card from './src/Card'
 import Router from 'vanilla-router'
 import Api from './src/Api'
 
+const api = new Api()
+
 document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
     for (let card of allTheCards) {
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   })
 
   router.add('cards/{id}', (id) => {
-    Api.get(id)
+    api.get()
       .then(res => {
         const cardData = res.body
         const card = new Card(cardData)
