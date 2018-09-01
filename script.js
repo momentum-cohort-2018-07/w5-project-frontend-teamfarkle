@@ -1,4 +1,4 @@
-import 'shoelace-css/dist/shoelace.css'
+// import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
 import Router from 'vanilla-router'
