@@ -1,4 +1,4 @@
-mport 'shoelace-css/dist/shoelace.css'
+import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
 import Router from 'vanilla-router'
@@ -10,9 +10,13 @@ const router = new Router({
 
 router.add('', (id) => {
   document.getElementById('cards-container').innerHTML = ''
-  const h1 = document.createElement('h1')
-  h1.innerText = 'Main page'
-  document.getElementById('cards-container').appendChild(h1)
+  const button = document.createElement('button')
+  button.innerText = 'Start Game'
+  document.getElementById('cards-container').appendChild(button)
+  button.addEventListener('Click', function (e) {
+    console.log('clicked button')
+    router.navigateTo('cards/{id}')
+  })
 })
 
 router.add('cards/{id}', (id) => {
@@ -30,19 +34,17 @@ router.add('cards/{id}', (id) => {
 router.addUriListener()
 router.check()
 
-
-  // document.getElementById('submit-button').addEventListener('click', function (event) {
-  //   event.preventDefault()
-  //   let cardData = {
-  //     answer: document.getElementById('input-answer').value,
-  //     question: document.getElementById('input-question').value
-  //   }
-  //   let newCard = new Card(cardData)
-  //   newCard.create().then(card => {
-  //     createCardDom(card)
-  //   })
-  // })
-
+// document.getElementById('submit-button').addEventListener('click', function (event) {
+//   event.preventDefault()
+//   let cardData = {
+//     answer: document.getElementById('input-answer').value,
+//     question: document.getElementById('input-question').value
+//   }
+//   let newCard = new Card(cardData)
+//   newCard.create().then(card => {
+//     createCardDom(card)
+//   })
+// })
 
 function createCardDom (card) {
   let cardDom = document.createElement('li')
