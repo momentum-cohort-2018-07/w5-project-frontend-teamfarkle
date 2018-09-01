@@ -6,8 +6,8 @@ class Api {
     this.baseUrl = 'http://localhost:3000/cards'
   }
 
-  get () {
-    return request.get(this.baseUrl)
+  get (id) {
+    return request.get(`${this.baseUrl}/${id}`)
   }
 
   post () {

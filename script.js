@@ -1,7 +1,8 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-// import Router from 'vanilla-router'
+import Router from 'vanilla-router'
+import Api from './src/Api'
 
 document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
@@ -9,6 +10,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
       createCardDom(card)
     }
   })
+
+  const router = new Router({
+    mode: 'history'
+  })
+
+  router.add('cards/{id}', (id) => {
+    Api.get(id)
+      .then(res => {
+        const cardData = res.body
+        const card = new Card(cardData)
+        const dom = createCardDom(card)
+        document.getElementById('cards-container').innerHTML = ''
+        document.getElementById('cards-container').appendChild(dom)
+      })
+  })
+
+  router.addUriListener()
+  router.check()
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()

@@ -1,3 +1,19 @@
 {
-  "cards": []
+  "cards": [
+    {
+      "id": "qMkPdq57z",
+      "answer": "Azul",
+      "question": "What is blue in Spanish?"
+    },
+    {
+      "id": "lG-KGmMgL",
+      "answer": "42",
+      "question": "What is the meaning of life?"
+    },
+    {
+      "id": "f1TsygGOZ",
+      "answer": "None. We don't deal with hardware issues.",
+      "question": "How many developers does it take to change a lightblub?"
+    }
+  ]
 }
