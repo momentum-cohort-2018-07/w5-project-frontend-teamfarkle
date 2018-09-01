@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
     event.preventDefault()
-    console.log('event', event)
     let cardData = {
       answer: document.getElementById('input-answer').value,
       question: document.getElementById('input-question').value
@@ -25,10 +24,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 })
 
 function createCardDom (card) {
-  console.log('create dom', createCardDom)
   let cardsContainer = document.getElementById('cards-container')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
+  cardDom.dataset.cardId = card.id
+  console.log('card id', card.id)
 
   cardDom.classList.add('card-Dom')
   cardDom.innerHTML = `<h3 class = 'question'>${card.question}</h3>
@@ -74,12 +74,24 @@ function createForm (card) {
   createInputAnswer.classList.add('input-answer')
 
   createInputQuestion.type = 'text'
-  createInputQuestion.value = card.question
-
   createInputAnswer.type = 'text'
+
+  createInputQuestion.value = card.question
   createInputAnswer.value = card.answer
 
   createForm.appendChild(createInputQuestion)
   createForm.appendChild(createInputAnswer)
   gameContainer.appendChild(createForm)
+
+  document.getElementsByClassName('edit-form')
+  var editButton = document.createElement('button')
+  editButton.classList.add('edit-button')
+  editButton.innerText = 'Save'
+  document.getElementsByClassName('edit-form')
+  var cancelButton = document.createElement('button')
+  cancelButton.classList.add('cancel-button')
+  cancelButton.innerText = 'Cancel'
+
+  createForm.appendChild(editButton)
+  createForm.appendChild(cancelButton)
 }

@@ -11,7 +11,6 @@ class Card {
   }
 
   static getAll () {
-    console.log("static getAll")
     return api.get()
       .then(response => {
         let cards = response.body
@@ -20,7 +19,6 @@ class Card {
   }
 
   create () {
-    console.log("create")
     return api.post()
       .send({
         id: this.id,
@@ -34,7 +32,6 @@ class Card {
   }
 
   update () {
-    console.log("update")
     if (!this.id) return
     return api.put(this.id)
       .send({
@@ -48,9 +45,7 @@ class Card {
   }
 
   delete () {
-    console.log("delete")
     if (!this.id) return
-    console.log('delete')
     return api.delete(this.id)
       .then(response => {
         this.id = null
