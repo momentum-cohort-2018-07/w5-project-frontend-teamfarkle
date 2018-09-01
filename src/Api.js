@@ -17,6 +17,7 @@ class Api {
   put (id) {
     return request.put(`${this.baseUrl}/${id}`)
   }
+
   patch (id) {
     return request.put(`${this.baseUrl}/${id}`)
   }
