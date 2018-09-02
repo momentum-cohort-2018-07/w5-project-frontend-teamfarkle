@@ -1,8 +1,8 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-// import Router from 'vanilla-router'
-
+import Router from 'vanilla-router'
+import Api from './src/Api'
 
 const router = new Router({
   mode: 'history'
@@ -10,34 +10,44 @@ const router = new Router({
 
 router.add('', (id) => {
   document.getElementById('cards-container').innerHTML = ''
-  const button = document.createElement('button')
-  button.innerText = 'Start Game'
-  document.getElementById('cards-container').appendChild(button)
-  button.addEventListener('click', function (e) {
-    e.preventDefault()
-    console.log('clicked button')
-    router.navigateTo('cards/RPtv6ZQ2r')
-
-  })
-
-  document.getElementById('submit-button').addEventListener('click', function (event) {
-    event.preventDefault()
-    let cardData = {
-      answer: document.getElementById('input-answer').value,
-      question: document.getElementById('input-question').value
-    }
-    let newCard = new Card(cardData)
-    newCard.create().then(card => {
-      createCardDom(card)
-    })
-  })
+  const h1 = document.createElement('h1')
+  h1.innerText = 'Main page'
+  document.getElementById('cards-container').appendChild(h1)
+  createCardDom()
 })
 
+router.add('cards/{id}', (id) => {
+  const api = new Api()
+  api.get(id)
+    .then(res => {
+      const cardData = res.body
+      const card = new Card(cardData)
+      const dom = createCardDom(card)
+      document.getElementById('cards-container').innerHTML = ''
+      document.getElementById('cards-container').appendChild(dom)
+    })
+})
+
+router.addUriListener()
+router.check()
+
+  // document.getElementById('submit-button').addEventListener('click', function (event) {
+  //   event.preventDefault()
+  //   let cardData = {
+  //     answer: document.getElementById('input-answer').value,
+  //     question: document.getElementById('input-question').value
+  //   }
+  //   let newCard = new Card(cardData)
+  //   newCard.create().then(card => {
+  //     createCardDom(card)
+  //   })
+  // })
+
 function createCardDom (card) {
-  let cardsContainer = document.getElementById('cards-container')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
   cardDom.dataset.cardId = card.id
+  console.log('card id', card.id)
 
   cardDom.classList.add('card-Dom')
   cardDom.innerHTML = `<h3 class = 'question'>${card.question}</h3>
@@ -47,8 +57,7 @@ function createCardDom (card) {
   let newEditButton = createEditButton(card)
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
-
-  cardsContainer.prepend(cardDom)
+  return cardDom
 }
 
 function createDeleteButton (card, cardDom) {
@@ -76,7 +85,6 @@ function createForm (card) {
   let gameContainer = document.getElementById('gameContainer')
   let createForm = document.createElement('form')
   createForm.classList.add('edit-form')
-  createForm.setAttribute('id', `${card.id}`)
 
   let createInputQuestion = document.createElement('input')
   createInputQuestion.classList.add('input-question')
@@ -93,28 +101,15 @@ function createForm (card) {
   createForm.appendChild(createInputAnswer)
   gameContainer.appendChild(createForm)
 
-  createSaveButton(card.id)
-  createCancelButton(card.id)
-}
-
-function createSaveButton (card) {
-  let editForm = document.getElementById(card)
+  document.getElementsByClassName('edit-form')
   var editButton = document.createElement('button')
   editButton.classList.add('edit-button')
   editButton.innerText = 'Save'
-  editForm.appendChild(editButton)
-  editButton.addEventListener('click', function (e) {
-    Card.update().then(card => {
-      card.remove()
-      createCardDom(card)
-    })
-  })
-}
-
-function createCancelButton (card) {
-  let editForm = document.getElementById(card)
+  document.getElementsByClassName('edit-form')
   var cancelButton = document.createElement('button')
   cancelButton.classList.add('cancel-button')
   cancelButton.innerText = 'Cancel'
-  editForm.appendChild(cancelButton)
+
+  createForm.appendChild(editButton)
+  createForm.appendChild(cancelButton)
 }

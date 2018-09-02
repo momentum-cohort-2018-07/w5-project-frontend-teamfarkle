@@ -77,10 +77,10 @@ li {
 
 /* Animista card flip code start */
 
-.flip-vertical-left {
+/* .flip-vertical-left {
 	-webkit-animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 	        animation: flip-vertical-left 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-}
+} */
 
 /* Animista card flip code end */
 
@@ -143,20 +143,9 @@ li {
 }
 
 /* Card flip test begin */
-/* 
-#front {
 
 
-}
-
-body {
-  background: #F17563;
-  font-family: Open Sans;
-  font-size: 50px;
-  color: #222;
-}
-
-label {
+/* label {
   -webkit-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
@@ -172,7 +161,8 @@ label {
   cursor: pointer;
 }
 
-.card {
+.cardView {
+  font-size: 50px;
   position: relative;
   height: 100%;
   width: 100%;
@@ -222,7 +212,6 @@ label:hover :checked + .card {
   -webkit-transform: rotateX(160deg);
   box-shadow: 0 20px 20px rgba(255,255,255,.2);
 } */
-
 
 
 /* Card flip text end  */
