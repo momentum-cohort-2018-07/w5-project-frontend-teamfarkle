@@ -45,7 +45,8 @@ function createCardDom (card) {
 
 function createDeleteButton (card, cardDom) {
   let newDeleteButton = document.createElement('button')
-  newDeleteButton.classList.add('fas', 'fa-trash-alt')
+  newDeleteButton.innerHTML = 'Delete Card'
+  // newDeleteButton.classList.add('fas', 'fa-trash-alt')
   newDeleteButton.addEventListener('click', function (event) {
     card.delete().then(() => {
       cardDom.remove()
@@ -113,7 +114,7 @@ function createNewCardForm () {
 
 function createNewCardButton () {
   let newCardButton = document.createElement('button')
-  newCardButton.innerText = 'Create new card'
+  newCardButton.innerText = 'Create New Card'
   newCardButton.setAttribute('id', 'new-card-button')
   newCardButton.setAttribute('href', '#create-card')
   return newCardButton
