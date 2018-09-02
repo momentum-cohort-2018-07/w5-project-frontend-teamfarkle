@@ -3,11 +3,21 @@ import './styles.css'
 import Card from './src/Card'
 // import Router from 'vanilla-router'
 
-document.addEventListener('DOMContentLoaded', function (event) {
-  Card.getAll().then(allTheCards => {
-    for (let card of allTheCards) {
-      createCardDom(card)
-    }
+
+const router = new Router({
+  mode: 'history'
+})
+
+router.add('', (id) => {
+  document.getElementById('cards-container').innerHTML = ''
+  const button = document.createElement('button')
+  button.innerText = 'Start Game'
+  document.getElementById('cards-container').appendChild(button)
+  button.addEventListener('click', function (e) {
+    e.preventDefault()
+    console.log('clicked button')
+    router.navigateTo('cards/RPtv6ZQ2r')
+
   })
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
