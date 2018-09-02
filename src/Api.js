@@ -6,7 +6,7 @@ class Api {
     this.baseUrl = 'http://localhost:3000/cards'
   }
 
-  get () {
+  get (id) {
     return request.get(this.baseUrl)
   }
 
