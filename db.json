@@ -1,14 +1,55 @@
 {
   "cards": [
     {
-      "id": "RPtv6ZQ2r",
-      "answer": "1",
-      "question": "1"
+      "id": "01",
+      "answer": "fools",
+      "question": "In university they don't tell you that the greater part of the law is learning to tolerate _______."
     },
     {
-      "id": "Jp8QKfqRd",
-      "answer": "2",
-      "question": "2"
+      "id": "02",
+      "answer": "learning",
+      "question": "That is what ________ is. You suddenly understand something you've understood all your life, but in a new way."
+    },
+    {
+      "id": "03",
+      "answer": "yourself",
+      "question": "Think wrongly, if you please, but in all cases think for _________."
+    },
+    {
+      "id": "04",
+      "answer": "Any human anywhere will blossom in a hundred unexpected talents and capacities simply by being given the ___________ to do so.",
+      "question": "opportunity"
+    },
+    {
+      "id": "05",
+      "answer": "faults",
+      "question": "Trust no friend without ________, and love a woman, but no angel."
+    },
+    {
+      "id": "06",
+      "answer": "healthy",
+      "question": "Laughter is by definition _________."
+    
+    },
+    {
+      "id": "07",
+      "answer": "fish",
+      "question": "If a ______ is the movement of water embodied, given shape, then cat is a diagram and pattern of subtle air."
+    },
+    {
+      "id": "08",
+      "answer": "sin",
+      "question": "There is only one real ______ and that is to persuade oneself that the second best is anything but second best."
+    },
+    {
+      "id": "09",
+      "answer": "What is a hero without love for ________.",
+      "question": "mankind"
+    },
+    {
+      "id": "10",
+      "answer": "stealing",
+      "question": "Borrowing is not much better than begging; just as lending with interest is not much better than __________."
     }
   ]
 }

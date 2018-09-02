@@ -1,31 +1,26 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-import Router from 'vanilla-router'
-import Api from './src/Api'
 
-const router = new Router({
-  mode: 'history'
-})
+document.addEventListener('DOMContentLoaded', function (event) {
+  Card.getAll().then(allTheCards => {
+    for (let card of allTheCards) {
+      createCardDom(card)
+      // createNewCardForm(card)
+    }
+  })
 
-router.add('', (id) => {
-  document.getElementById('cards-container').innerHTML = ''
-  const h1 = document.createElement('h1')
-  h1.innerText = 'Main page'
-  document.getElementById('cards-container').appendChild(h1)
-  createCardDom()
-})
-
-router.add('cards/{id}', (id) => {
-  const api = new Api()
-  api.get(id)
-    .then(res => {
-      const cardData = res.body
-      const card = new Card(cardData)
-      const dom = createCardDom(card)
-      document.getElementById('cards-container').innerHTML = ''
-      document.getElementById('cards-container').appendChild(dom)
-    })
+  document.getElementById('new-card-button').addEventListener('click', function (event) {
+    event.preventDefault()
+    createNewCardForm()
+    // let cardData = {
+    //   answer: document.getElementById('input-answer').value,
+    //   question: document.getElementById('input-question').value
+    // }
+    // let newCard = new Card(cardData)
+    // newCard.create().then(card => {
+    //   createCardDom(card)
+  })
 })
 
 router.addUriListener()
@@ -44,6 +39,7 @@ router.check()
   // })
 
 function createCardDom (card) {
+  let cardsContainer = document.getElementById('cards')
   let cardDom = document.createElement('li')
   cardDom.classList.add('flash-card')
   cardDom.dataset.cardId = card.id
@@ -55,14 +51,18 @@ function createCardDom (card) {
 
   let newDeleteButton = createDeleteButton(card, cardDom)
   let newEditButton = createEditButton(card)
+  let newCardButton = createNewCardButton()
   cardDom.appendChild(newDeleteButton)
   cardDom.appendChild(newEditButton)
-  return cardDom
+  cardDom.appendChild(newCardButton)
+
+  cardsContainer.prepend(cardDom)
 }
 
 function createDeleteButton (card, cardDom) {
   let newDeleteButton = document.createElement('button')
-  newDeleteButton.classList.add('fas', 'fa-trash-alt')
+  newDeleteButton.innerHTML = 'Delete Card'
+  // newDeleteButton.classList.add('fas', 'fa-trash-alt')
   newDeleteButton.addEventListener('click', function (event) {
     card.delete().then(() => {
       cardDom.remove()
@@ -72,17 +72,20 @@ function createDeleteButton (card, cardDom) {
 }
 
 function createEditButton (card) {
-  let editButton = document.createElement('button')
-  editButton.classList.add('fas', 'fa-edit')
+  let editButton = document.createElement('a')
+  // editButton.classList.add('fas', 'fa-edit')
+  editButton.innerText = 'Edit Card'
+  editButton.setAttribute('href', '#edit-cards')
   editButton.addEventListener('click', function (event) {
     event.preventDefault()
+    document.getElementById('edit-cards').innerHTML = ''
     createForm(card)
   })
   return editButton
 }
 
 function createForm (card) {
-  let gameContainer = document.getElementById('gameContainer')
+  let gameContainer = document.getElementById('edit-cards')
   let createForm = document.createElement('form')
   createForm.classList.add('edit-form')
 
@@ -101,7 +104,39 @@ function createForm (card) {
   createForm.appendChild(createInputAnswer)
   gameContainer.appendChild(createForm)
 
-  document.getElementsByClassName('edit-form')
+  createSaveButton(card.id)
+  createCancelButton(card.id)
+}
+
+function createNewCardForm () {
+  console.log('hi')
+  let formDiv = document.getElementById('create-card')
+  let form = document.createElement('form')
+  form.classList.add('create-card-form')
+
+  let createInputQuestion = document.createElement('input')
+  createInputQuestion.classList.add('input-question')
+  let createInputAnswer = document.createElement('input')
+  createInputAnswer.classList.add('input-answer')
+
+  createInputQuestion.type = 'text'
+  createInputAnswer.type = 'text'
+
+  form.appendChild(createInputQuestion)
+  form.appendChild(createInputAnswer)
+  formDiv.appendChild(form)
+}
+
+function createNewCardButton () {
+  let newCardButton = document.createElement('button')
+  newCardButton.innerText = 'Create New Card'
+  newCardButton.setAttribute('id', 'new-card-button')
+  newCardButton.setAttribute('href', '#create-card')
+  return newCardButton
+}
+
+function createSaveButton (card) {
+  let editForm = document.getElementById(card)
   var editButton = document.createElement('button')
   editButton.classList.add('edit-button')
   editButton.innerText = 'Save'
