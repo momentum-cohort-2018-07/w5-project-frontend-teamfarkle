@@ -1,7 +1,7 @@
 import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
-// import Router from 'vanilla-router'
+import Router from 'vanilla-router'
 
 const router = new Router({
   mode: 'history'
@@ -10,11 +10,14 @@ const router = new Router({
 router.add('', (id) => {
   document.getElementById('cards-container').innerHTML = ''
   const button = document.createElement('button')
-  button.innerText = 'Start Game'
-  document.getElementById('cards-container').appendChild(button)
+  button.setAttribute('id', 'start-game-button')
+  button.innerHTML = 'Start Game'
+  console.log('did you hear it')
+  document.getElementById('start-game-button').appendChild(button)
   button.addEventListener('click', function (e) {
     e.preventDefault()
-    router.navigateTo('cards/{id}')
+
+    router.navigateTo('cards/')
   })
 
   document.getElementById('submit-button').addEventListener('click', function (event) {
