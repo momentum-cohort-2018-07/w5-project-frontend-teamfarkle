@@ -11,14 +11,21 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div id="gameContainer">
-    <div id="cards-container">
-    <div id="cardVew"></div>
-    <form id = "form">
+  <div id="top-banner">
       <h1 id="gameTitle">Flash cards!</h1>
-      <input id = "input-question" type = "text">
-      <input id = "input-answer" type = "text">
-      <button id = "submit-button">Submit</button>
+  </div>
+  <div id="gameContainer">
+      <div id="cards-container">
+        <label>
+          <input type="checkbox">
+          <div id="front" class="cardView"></div>
+          <div id="back" class="cardView"></div>
+        </label>
+      </div>
+      <form id="form">
+      <input id="input-question" type="text">
+      <input id="input-answer" type="text">
+      <button id="submit-button">Submit</button>
     </form>
   </div>
   </div>
