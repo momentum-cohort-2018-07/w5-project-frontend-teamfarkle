@@ -6,21 +6,27 @@
 
 /* top banner section */
 
+
+body {
+  background-color:#E1F5F0;
+  font-family: 'Raleway', sans-serif;
+}
+
+#top-banner {
+  background-color:#F3FFF4;
+  width: 100%;
+}
+
 #gameTitle {
+  margin: 0 30px;
   /* background-color: black; */
   /* color: white; */
+  font-family: 'Raleway', sans-serif;
   color:#1F166A;
   padding: 10px 0;
   width: 100%;
   font-size: 3rem;
   font-weight: 300;
-  margin: 0 
-}
-
-
-body {
-  background-color:#E1F5F0;
-  font-family: 'Raleway', sans-serif;
 }
 
 #gameContainer {
@@ -37,9 +43,9 @@ body {
 
 #form input {
   display: block;
-  width: 85%;
+  width: 90%;
   height: 30px;
-  margin: 10px 0;
+  margin: 10px auto;
   border: gray solid 1px;
   border-radius: 2px;
 }
@@ -49,10 +55,12 @@ body {
   font-weight: 700;
   color: white;
   background-color:#ED6168;
-  font-size: .9rem;
-  padding: 5px 10px;
+  font-size: .75rem;
+  line-height: .9rem;
   border-radius: 2px;
   border: none;
+  margin: 10px auto;
+  text-align: center;
 }
 
 li {
@@ -106,6 +114,21 @@ li {
   border: none;
 }
 
+#cards-container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#cards-container button {
+  background-color:#1F166A;
+  /* background-color: #ED6168; */
+  font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+  margin: 5px auto;
+}
+
 .flash-card {
   margin-top: 20px;
   /* width: 85%; */
@@ -118,6 +141,92 @@ li {
   border-right: 1px darkgray solid;
   border-bottom: 1px darkgray solid
 }
+
+/* Card flip test begin */
+/* 
+#front {
+
+
+}
+
+body {
+  background: #F17563;
+  font-family: Open Sans;
+  font-size: 50px;
+  color: #222;
+}
+
+label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  display: block;
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20;
+}
+
+  .card div {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: #FFF;
+      text-align: center;
+      line-height: 200px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 2px;
+  }
+
+  .card .back {
+      background: #222;
+      color: #FFF;
+      -webkit-transform: rotateX(180deg);
+      transform: rotateX(180deg);
+  }
+
+label:hover .card {
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+  box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+  display: none;
+}
+
+:checked + .card {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+  transform: rotateX(160deg);
+  -webkit-transform: rotateX(160deg);
+  box-shadow: 0 20px 20px rgba(255,255,255,.2);
+} */
+
+
+
+/* Card flip text end  */
+
 
 /* // Animation from Animista.com 
   
@@ -134,7 +243,7 @@ li {
 There are a list of div objects (with the class "anim-object"). The one with the active class is the one displayed. The site uses onclick events to change the classes and stylings of the divs to trigger the events. Open developer tools or view source. It's clearly meant to be agnostic as to the triggering event for the various animations.
 
  */
- @-webkit-keyframes flip-vertical-left {
+ /* @-webkit-keyframes flip-vertical-left {
   0% {
     -webkit-transform: rotateY(0);
             transform: rotateY(0);
@@ -154,5 +263,5 @@ There are a list of div objects (with the class "anim-object"). The one with the
             transform: rotateY(-180deg);
   }
 }
-
+ */
 
