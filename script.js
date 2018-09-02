@@ -13,8 +13,8 @@ router.add('', (id) => {
   const button = document.createElement('button')
   button.innerText = 'Start Game'
   document.getElementById('cards-container').appendChild(button)
-  button.addEventListener('Click', function (e) {
-    console.log('clicked button')
+  button.addEventListener('click', function (e) {
+    e.preventDefault()
     router.navigateTo('cards/{id}')
   })
 })
