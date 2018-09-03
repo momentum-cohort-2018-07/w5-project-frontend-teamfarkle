@@ -266,7 +266,6 @@ li {
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
-
 .cardView {
   font-size: 50px;
   position: relative;
@@ -278,7 +277,6 @@ li {
   transition: all 600ms;
   z-index: 20;
 }
-
   .card div {
       position: absolute;
       height: 100%;
@@ -290,29 +288,24 @@ li {
       backface-visibility: hidden;
       border-radius: 2px;
   }
-
   .card .back {
       background: #222;
       color: #FFF;
       -webkit-transform: rotateX(180deg);
       transform: rotateX(180deg);
   }
-
 label:hover .card {
   -webkit-transform: rotateX(20deg);
   transform: rotateX(20deg);
   box-shadow: 0 20px 20px rgba(50,50,50,.2);
 }
-
 input {
   display: none;
 }
-
 :checked + .card {
   transform: rotateX(180deg);
   -webkit-transform: rotateX(180deg);
 }
-
 label:hover :checked + .card {
   transform: rotateX(160deg);
   -webkit-transform: rotateX(160deg);
@@ -334,9 +327,7 @@ label:hover :checked + .card {
  * ----------------------------------------
  * animation flip-vertical-left
  * ----------------------------------------
-
 There are a list of div objects (with the class "anim-object"). The one with the active class is the one displayed. The site uses onclick events to change the classes and stylings of the divs to trigger the events. Open developer tools or view source. It's clearly meant to be agnostic as to the triggering event for the various animations.
-
  */
  /* @-webkit-keyframes flip-vertical-left {
   0% {
@@ -359,4 +350,4 @@ There are a list of div objects (with the class "anim-object"). The one with the
   }
 }
  */
-
+ 
