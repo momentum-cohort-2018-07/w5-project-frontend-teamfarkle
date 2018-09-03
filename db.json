@@ -12,8 +12,8 @@
     },
     {
       "id": "04",
-      "answer": "Any human anywhere will blossom in a hundred unexpected talents and capacities simply by being given the ___________ to do so.",
-      "question": "opportunity"
+      "answer": "opportunity",
+      "question": "Any human anywhere will blossom in a hundred unexpected talents and capacities simply by being given the ___________ to do so."
     },
     {
       "id": "05",
@@ -37,8 +37,14 @@
     },
     {
       "id": "09",
-      "answer": "What is a hero without love for ________.",
-      "question": "mankind"
+      "answer": "mankind",
+      "question": "What is a hero without love for ________."
+    },
+
+    {
+      "id": "10",
+      "answer": "stealing",
+      "question": "Borrowing is not much better than begging; just as lending with interest is not much better than __________."
     }
   ]
 }

@@ -84,10 +84,12 @@ li {
 /* Form View */
 
 .card-Dom {
-  /* display: flex; */
+  justify-content: space-between;
   background-color: white;
   /* width: 300px; */
   width: 85%;
+  height: 350px;
+  position: relative;
 }
 
 /* Animista card flip code start */
@@ -100,6 +102,9 @@ li {
 /* Animista card flip code end */
 
 .card-Dom h3 {
+  display: block;
+  float: left;
+  width: 100%;
   background-color: white;
   font-family: 'Raleway', sans-serif;
   color:#1F166A;
@@ -111,13 +116,16 @@ li {
 
 .card-Dom p {
   /* display: hidden; */
+  display: block;
+  float: left;
+  width: 100%;
   background-color: white;
   font-family: 'Raleway', sans-serif;
   /* color:#1F166A; */
   color: white;
   font-size: 2.5rem;
   font-weight: 300;
-  margin-bottom: 20px;
+  /* margin-bottom: 150px; */
   line-height: 1.5rem;
 }
 
@@ -141,10 +149,13 @@ li {
   border: none;
   font-weight: 700;
   vertical-align: bottom;
+  /* flex: 1 1 0; */
   /* align-self: flex-end; */
+  /* read that as of 2017 flexbox wasn't well supported for buttons */
 }
 
 .card-Dom a {
+  display: inline-block;
   color: white;
   background-color: #ED6168;
   font-size: 1rem;
@@ -155,6 +166,7 @@ li {
   font-weight: 700;
   bottom: 20px;
   vertical-align: bottom;
+  /* position: absolute; */
 }
 
 .card-Dom a:hover {
@@ -171,20 +183,25 @@ li {
   vertical-align: bottom;
 }
 
+.linkButton {
+  display: inline-block;
+  bottom: 10px;
+}
+
 #cards-container {
   margin: 0 auto;
   text-align: center;
 }
 
-#cards-container button {
+/* #cards-container button {
   background-color:#1F166A;
   /* background-color: #ED6168; */
-  font-size: 1.25rem;
+  /* font-size: 1.25rem;
   font-weight: 700;
   border: none;
   text-align: center;
   margin: 5px auto;
-}
+} */ 
 
 .flash-card {
   margin-top: 20px;
@@ -196,7 +213,8 @@ li {
   font-size: 1.2rem;
   font-weight: 300;
   border-right: 1px darkgray solid;
-  border-bottom: 1px darkgray solid
+  border-bottom: 1px darkgray solid;
+  /* position: relative; */
 }
 
 #edit-card {
