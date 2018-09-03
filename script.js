@@ -109,7 +109,7 @@ function createNewCardForm () {
 function createNewCardButton () {
   let newCardButton = document.createElement('a')
   newCardButton.classList.add('linkButton')
-  newCardButton.innerText = 'Create New Card'
+  newCardButton.innerText = 'Add New Card'
   newCardButton.setAttribute('id', 'new-card-button')
   newCardButton.setAttribute('href', '#create-card')
 

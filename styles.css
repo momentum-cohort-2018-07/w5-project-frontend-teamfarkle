@@ -4,24 +4,8 @@
   padding: 0;
 }
 
-/* top banner section */
-
-/* 
-  <div id="top-banner">
-      <h1 id="game-title">Flash cards!</h1>
-  </div>
-  <div id="game-container">
-    <div id="cards"></div>
-  </div>
-  <div id="edit-cards"><a href='edit-cards'></a></div>
-  <div id="create-card"></div>
-</body>
-</html> */
-
-
 body {
   background-color:#E1F5F0;
-  /* font-family: 'Nunito Sans', sans-serif; */
   font-family: 'Raleway', sans-serif;
 }
 
@@ -32,15 +16,13 @@ body {
 
 #game-title {
   margin: 0 30px 30px 30px;
-  /* background-color: black; */
-  /* color: white; */
-  /* font-family: 'Nunito Sans', sans-serif; */
   font-family: 'Raleway', sans-serif;
   color:#1F166A;
   padding: 14px 0;
-  width: 100%;
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 300;
+  letter-spacing: -1px;
+  text-align: center;
 }
 
 #gameContainer {
@@ -48,20 +30,8 @@ body {
   margin: 20px 30px;
 }
 
-/* Form View */
-
-
 #form {
   width: 85%;
-}
-
-#form input {
-  display: block;
-  width: 90%;
-  height: 30px;
-  margin: 10px auto;
-  border: gray solid 1px;
-  border-radius: 2px;
 }
 
 #submit-button {
@@ -81,15 +51,36 @@ li {
   list-style: none;
 }
 
-/* Form View */
-
 .card-Dom {
-  justify-content: space-between;
   background-color: white;
-  /* width: 300px; */
   width: 85%;
   height: 350px;
-  position: relative;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin: 10px auto;
+  border: lightgray solid 1px;
+  border-radius: 2px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  padding: 0 5px;
+}
+
+button {
+  color: white;
+  background-color: #1F166A;
+  text-decoration: none;
+  font-size: .75rem;
+  padding: 7px 12px;
+  border-radius: 2px;
+  margin: 0 15px;
+  border: none;
+  font-weight: 700;
+  bottom: 20px;
+  vertical-align: bottom;
 }
 
 /* Animista card flip code start */
@@ -102,46 +93,38 @@ li {
 /* Animista card flip code end */
 
 .card-Dom h3 {
-  display: block;
-  float: left;
   width: 100%;
-  background-color: white;
+  /* background-color: white; */
   font-family: 'Raleway', sans-serif;
   color:#1F166A;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 18px;
-  line-height: 1.75rem;
+  margin: 28px 0px 28px 0px;
+  line-height: 2rem;
+  overflow: auto;
 }
 
 .card-Dom p {
-  /* display: hidden; */
-  display: block;
-  float: left;
   width: 100%;
   background-color: white;
   font-family: 'Raleway', sans-serif;
-  /* color:#1F166A; */
   color: white;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 300;
-  /* margin-bottom: 150px; */
-  line-height: 1.5rem;
+  margin: 28px 0px 28px 0px;
+  line-height: 2rem;
+  text-align: center;
+  /* overflow: auto; */
 }
 
 .card-Dom p:hover {
   color:#1F166A;
 }
 
-/* 
-.card-Dom p:hover {
-  display: block;
-} */
-
 .card-Dom button {
   color: white;
   background-color: #ED6168;
-  font-size: 1rem;
+  font-size: 1.25rem;
   padding: 0 15px;
   border-radius: 2px;
   margin-right: 10px;
@@ -158,54 +141,35 @@ li {
   display: inline-block;
   color: white;
   background-color: #ED6168;
-  font-size: 1rem;
-  padding: 8.5px 15px;
+  font-size: .8rem;
+  padding: 8px 12px;
   border-radius: 2px;
-  margin: 15px;
+  margin: 5px 8px 5px 22px;
   border: none;
   font-weight: 700;
   bottom: 20px;
-  vertical-align: bottom;
-  /* position: absolute; */
+  text-decoration: none;
+  max-width: 30%;
 }
 
 .card-Dom a:hover {
   color: white;
   background-color: #1F166A;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 8.5px 15px;
-  border-radius: 2px;
-  margin: 15px;
-  border: none;
-  font-weight: 700;
-  bottom: 20px;
-  vertical-align: bottom;
 }
 
+/* 
 .linkButton {
   display: inline-block;
   bottom: 10px;
-}
+} */
 
-#cards-container {
+/* #cards-container {
   margin: 0 auto;
   text-align: center;
-}
-
-/* #cards-container button {
-  background-color:#1F166A;
-  /* background-color: #ED6168; */
-  /* font-size: 1.25rem;
-  font-weight: 700;
-  border: none;
-  text-align: center;
-  margin: 5px auto;
-} */ 
+} */
 
 .flash-card {
   margin-top: 20px;
-  /* width: 85%; */
   height: 350px;
   padding: 20px;
   background-color: white;
@@ -214,7 +178,6 @@ li {
   font-weight: 300;
   border-right: 1px darkgray solid;
   border-bottom: 1px darkgray solid;
-  /* position: relative; */
 }
 
 #edit-card {
@@ -233,7 +196,7 @@ li {
   color:#1F166A;
   padding: 14px 0;
   width: 100%;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 300;
 }
 
@@ -243,13 +206,22 @@ li {
   color:#1F166A;
   padding: 14px 0;
   width: 100%;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 300;
 }
 
 
-/* Card flip test begin */
+/* #cards-container button {
+  background-color:#1F166A;
+  /* background-color: #ED6168; */
+  /* font-size: 1.25rem;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+  margin: 5px auto;
+} */ 
 
+/* Card flip test begin */
 
 /* label {
   -webkit-perspective: 1000px;
@@ -350,4 +322,3 @@ There are a list of div objects (with the class "anim-object"). The one with the
   }
 }
  */
- 
