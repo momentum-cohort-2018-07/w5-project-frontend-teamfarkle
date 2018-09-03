@@ -1,4 +1,4 @@
-// import 'shoelace-css/dist/shoelace.css'
+import 'shoelace-css/dist/shoelace.css'
 import './styles.css'
 import Card from './src/Card'
 
@@ -83,7 +83,7 @@ function createForm (card) {
   createForm.appendChild(createInputAnswer)
   gameContainer.appendChild(createForm)
 
-  createEditSaveButton(card, createForm, createInputQuestion, createInputAnswer)
+  createSaveButton(card, createForm, createInputQuestion, createInputAnswer)
   // createCancelButton(card, createForm)
 }
 
@@ -91,12 +91,11 @@ function createNewCardForm () {
   let formDiv = document.getElementById('create-card')
   let form = document.createElement('form')
   form.classList.add('create-card-form')
-  form.setAttribute('id', 'new-card-form')
 
   let createInputQuestion = document.createElement('input')
-  createInputQuestion.setAttribute('id', 'input-question')
+  createInputQuestion.classList.add('input-question')
   let createInputAnswer = document.createElement('input')
-  createInputAnswer.setAttribute('id', 'input-answer')
+  createInputAnswer.classList.add('input-answer')
 
   createInputQuestion.type = 'text'
   createInputAnswer.type = 'text'
@@ -117,33 +116,19 @@ function createNewCardButton () {
     event.preventDefault()
     document.getElementById('create-card').innerHTML = ''
     createNewCardForm()
-    createNewCardSaveButton()
+    createSaveButton()
   })
   return newCardButton
 }
 
-function createNewCardSaveButton () {
-  let newCardForm = document.getElementById('new-card-form')
+function createNewCardSaveButton (newCardButton) {
   let saveNewCardButton = document.createElement('button')
   saveNewCardButton.classList.add('saveButton')
-  saveNewCardButton.setAttribute('id', 'save-new-card')
-
   saveNewCardButton.innerText = 'Save'
-  newCardForm.appendChild(saveNewCardButton)
-  document.getElementById('save-new-card').addEventListener('click', function (event) {
-    event.preventDefault()
-    let cardData = {
-      answer: document.getElementById('input-answer').value,
-      question: document.getElementById('input-question').value
-    }
-    let newCard = new Card(cardData)
-    newCard.create().then(card => {
-      createCardDom(card)
-    })
-  })
+  newCardButton.appendChild(saveNewCardButton)
 }
 
-function createEditSaveButton (card, createForm, createInputQuestion, createInputAnswer) {
+function createSaveButton (card, createForm, createInputQuestion, createInputAnswer) {
   let editButton = document.createElement('button')
   editButton.classList.add('edit-button')
   editButton.innerText = 'Save'
