@@ -6,37 +6,14 @@ document.addEventListener('DOMContentLoaded', function (event) {
   Card.getAll().then(allTheCards => {
     for (let card of allTheCards) {
       createCardDom(card)
-      // createNewCardForm(card)
     }
   })
 
   document.getElementById('new-card-button').addEventListener('click', function (event) {
     event.preventDefault()
     createNewCardForm()
-    // let cardData = {
-    //   answer: document.getElementById('input-answer').value,
-    //   question: document.getElementById('input-question').value
-    // }
-    // let newCard = new Card(cardData)
-    // newCard.create().then(card => {
-    //   createCardDom(card)
   })
 })
-
-router.addUriListener()
-router.check()
-
-  // document.getElementById('submit-button').addEventListener('click', function (event) {
-  //   event.preventDefault()
-  //   let cardData = {
-  //     answer: document.getElementById('input-answer').value,
-  //     question: document.getElementById('input-question').value
-  //   }
-  //   let newCard = new Card(cardData)
-  //   newCard.create().then(card => {
-  //     createCardDom(card)
-  //   })
-  // })
 
 function createCardDom (card) {
   let cardsContainer = document.getElementById('cards')
@@ -47,7 +24,7 @@ function createCardDom (card) {
 
   cardDom.classList.add('card-Dom')
   cardDom.innerHTML = `<h3 class = 'question'>${card.question}</h3>
-                      <p class = 'answer'>${card.answer}</p>`
+  <p class = 'answer'>${card.answer}</p>`
 
   let newDeleteButton = createDeleteButton(card, cardDom)
   let newEditButton = createEditButton(card)
@@ -60,9 +37,10 @@ function createCardDom (card) {
 }
 
 function createDeleteButton (card, cardDom) {
-  let newDeleteButton = document.createElement('button')
+  let newDeleteButton = document.createElement('a')
   newDeleteButton.innerHTML = 'Delete Card'
-  // newDeleteButton.classList.add('fas', 'fa-trash-alt')
+  newDeleteButton.classList.add('linkButton')
+  newDeleteButton.setAttribute('href', '#delete-card')
   newDeleteButton.addEventListener('click', function (event) {
     card.delete().then(() => {
       cardDom.remove()
@@ -73,19 +51,19 @@ function createDeleteButton (card, cardDom) {
 
 function createEditButton (card) {
   let editButton = document.createElement('a')
-  // editButton.classList.add('fas', 'fa-edit')
+  editButton.classList.add('linkButton')
   editButton.innerText = 'Edit Card'
-  editButton.setAttribute('href', '#edit-cards')
+  editButton.setAttribute('href', '#edit-card')
   editButton.addEventListener('click', function (event) {
     event.preventDefault()
-    document.getElementById('edit-cards').innerHTML = ''
+    document.getElementById('edit-card').innerHTML = ''
     createForm(card)
   })
   return editButton
 }
 
 function createForm (card) {
-  let gameContainer = document.getElementById('edit-cards')
+  let gameContainer = document.getElementById('edit-card')
   let createForm = document.createElement('form')
   createForm.classList.add('edit-form')
 
@@ -128,7 +106,8 @@ function createNewCardForm () {
 }
 
 function createNewCardButton () {
-  let newCardButton = document.createElement('button')
+  let newCardButton = document.createElement('a')
+  newCardButton.classList.add('linkButton')
   newCardButton.innerText = 'Create New Card'
   newCardButton.setAttribute('id', 'new-card-button')
   newCardButton.setAttribute('href', '#create-card')

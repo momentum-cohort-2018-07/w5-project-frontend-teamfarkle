@@ -6,9 +6,22 @@
 
 /* top banner section */
 
+/* 
+  <div id="top-banner">
+      <h1 id="game-title">Flash cards!</h1>
+  </div>
+  <div id="game-container">
+    <div id="cards"></div>
+  </div>
+  <div id="edit-cards"><a href='edit-cards'></a></div>
+  <div id="create-card"></div>
+</body>
+</html> */
+
 
 body {
   background-color:#E1F5F0;
+  /* font-family: 'Nunito Sans', sans-serif; */
   font-family: 'Raleway', sans-serif;
 }
 
@@ -17,13 +30,14 @@ body {
   width: 100%;
 }
 
-#gameTitle {
-  margin: 0 30px;
+#game-title {
+  margin: 0 30px 30px 30px;
   /* background-color: black; */
   /* color: white; */
+  /* font-family: 'Nunito Sans', sans-serif; */
   font-family: 'Raleway', sans-serif;
   color:#1F166A;
-  padding: 10px 0;
+  padding: 14px 0;
   width: 100%;
   font-size: 3rem;
   font-weight: 300;
@@ -70,6 +84,7 @@ li {
 /* Form View */
 
 .card-Dom {
+  /* display: flex; */
   background-color: white;
   /* width: 300px; */
   width: 85%;
@@ -88,30 +103,59 @@ li {
   background-color: white;
   font-family: 'Raleway', sans-serif;
   color:#1F166A;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   line-height: 1.75rem;
 }
 
 .card-Dom p {
+  /* display: hidden; */
   background-color: white;
   font-family: 'Raleway', sans-serif;
-  color:#1F166A;
-  font-size: 1.25rem;
+  /* color:#1F166A; */
+  color: white;
+  font-size: 2.5rem;
   font-weight: 300;
   margin-bottom: 20px;
   line-height: 1.5rem;
 }
 
+.card-Dom p:hover {
+  color:#1F166A;
+}
+
+/* 
+.card-Dom p:hover {
+  display: block;
+} */
+
 .card-Dom button {
   color: white;
   background-color: #ED6168;
   font-size: 1rem;
-  padding: 5px;
+  padding: 0 15px;
   border-radius: 2px;
   margin-right: 10px;
+  margin-top: 80px;
   border: none;
+  font-weight: 700;
+  vertical-align: bottom;
+  /* align-self: flex-end; */
+}
+
+.card-Dom a {
+  color: white;
+  background-color: #ED6168;
+  font-size: 1rem;
+  padding: 8.5px 15px;
+  border-radius: 2px;
+  margin: 15px;
+  border: none;
+  font-weight: 700;
+  margin-top: 120px;
+  position: absolute;
+  /* top: 190px; */
 }
 
 #cards-container {
@@ -132,7 +176,7 @@ li {
 .flash-card {
   margin-top: 20px;
   /* width: 85%; */
-  height: 300px;
+  height: 350px;
   padding: 20px;
   background-color: white;
   font-family: 'Raleway', sans-serif;
@@ -141,6 +185,37 @@ li {
   border-right: 1px darkgray solid;
   border-bottom: 1px darkgray solid
 }
+
+#edit-card {
+  height: 100px;
+  width: 85%;
+}
+
+#create-card {
+  height: 100px;
+  width: 85%;
+}
+
+#edit-card h2 {
+  margin-top: 20px;
+  font-family: 'Raleway', sans-serif;
+  color:#1F166A;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+#create-card h2 {
+  margin-top: 20px;
+  font-family: 'Raleway', sans-serif;
+  color:#1F166A;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 
 /* Card flip test begin */
 

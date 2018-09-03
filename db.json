@@ -1,11 +1,6 @@
 {
   "cards": [
     {
-      "id": "01",
-      "answer": "fools",
-      "question": "In university they don't tell you that the greater part of the law is learning to tolerate _______."
-    },
-    {
       "id": "02",
       "answer": "learning",
       "question": "That is what ________ is. You suddenly understand something you've understood all your life, but in a new way."
@@ -29,7 +24,6 @@
       "id": "06",
       "answer": "healthy",
       "question": "Laughter is by definition _________."
-    
     },
     {
       "id": "07",
@@ -45,11 +39,6 @@
       "id": "09",
       "answer": "What is a hero without love for ________.",
       "question": "mankind"
-    },
-    {
-      "id": "10",
-      "answer": "stealing",
-      "question": "Borrowing is not much better than begging; just as lending with interest is not much better than __________."
     }
   ]
 }
