@@ -1,11 +1,6 @@
 {
   "cards": [
     {
-      "id": "04",
-      "answer": "opportunity",
-      "question": "Any human anywhere will blossom in a hundred unexpected talents and capacities simply by being given the ___________ to do so."
-    },
-    {
       "id": "05",
       "answer": "faults",
       "question": "Trust no friend without ________, and love a woman, but no angel."
@@ -44,6 +39,16 @@
       "id": "tWbnTu-7-",
       "answer": "fools",
       "question": "In university they don't tell you that the greater part of the law is learning to tolerate _______."
+    },
+    {
+      "id": "a1inU96-d",
+      "answer": "ANSWER",
+      "question": "That is what ________ is. You suddenly understand something you've understood all your life, but in a new way."
+    },
+    {
+      "id": "ZrnWAle8u",
+      "answer": "1",
+      "question": "1"
     }
   ]
 }
